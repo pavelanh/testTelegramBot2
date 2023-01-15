@@ -19,7 +19,7 @@ def _get_property(prop):
 bot = telebot.TeleBot(_get_property('BOT_TOKEN'))
 openai.api_key = _get_property('OPENAI_API_KEY')
 
-OPT_MENU = {'Option 1', 'Option 2', 'Option 3'}
+OPT_MENU = ('Option 1', 'Option 2', 'Option 3')
 
 
 def run_telegram_bot():
@@ -29,9 +29,9 @@ def run_telegram_bot():
         logging.info(f'You: {text_from_request}')
         if '/menu' == text_from_request:
             markup = telebot.types.ReplyKeyboardMarkup(row_width=3)
-            item_btn1 = telebot.types.KeyboardButton('Option 1')
-            item_btn2 = telebot.types.KeyboardButton('Option 2')
-            item_btn3 = telebot.types.KeyboardButton('Option 3')
+            item_btn1 = telebot.types.KeyboardButton(OPT_MENU[0])
+            item_btn2 = telebot.types.KeyboardButton(OPT_MENU[1])
+            item_btn3 = telebot.types.KeyboardButton(OPT_MENU[2])
             markup.add(item_btn1, item_btn2, item_btn3)
 
             bot.send_message(chat_id=message.chat.id, text="Choose one option:", reply_markup=markup)
