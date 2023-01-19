@@ -1,0 +1,4 @@
+openai==0.26.1
+jproperties==2.1.1
+colorlog==6.7.0
+pyTelegramBotAPI==4.9.0
